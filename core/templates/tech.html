@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Tech | Blogs{% endblock title %}
+{% block content %}
+{% if tech_posts %}
+{% for post in tech_posts  %}
+<div class="container py-4 px-3 d-flex home-post">
+
+    <!-- Posts Image -->
+    <div class="col-sm-4">
+        <img 
+         style="
+         margin-top: 12px; 
+         max-height: 300px; 
+         width: 100%; 
+         object-fit: contain;" 
+         src="{{ post.post_img.url }}" 
+         alt=""
+        >
+    </div>
+    
+    <!-- Posts Details -->
+    <div class="col-sm-8 px-3 py-1">
+        <a 
+         href="{% url 'full-post' post.id %}" 
+         class="text-decoration-none text-dark icon-link icon-link-hover link-warning"
+        >
+            <h1>{{ post.title }}</h1>
+        </a>
+        <p class="lh-lg">{{ post.description|truncatechars:300 }}</p>
+        {% if post.description|length > 300 %}
+        <a href="{% url 'full-post' post.id %}">
+            <button 
+             class="read-btn"
+             style=
+             "border: 1px solid lightgray; 
+             color:white; 
+             background-color:teal;
+             border-radius: 8px;
+             height: 60px;
+             width: 120px;
+             "
+            >
+            Read More
+        </button>
+        </a>
+        {% endif %}
+    </div>
+
+</div>
+{% endfor %}
+{% else %}
+<h1>No Posts</h1>
+{% endif %}
+{% endblock content %}

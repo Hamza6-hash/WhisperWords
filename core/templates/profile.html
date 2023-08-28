@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block content %}
+    <div class="container p-3">
+        <div class="d-flex flex-column justify-content-center align-items-center mobile-screen-profile">
+          <h2 class="text-center"><em>@{{ user_profile.user.username }}</em></h2>
+
+          <p class="text-center fs-5" style="width: 50%;">{{ user_profile.aboutAuthor }}</p>  
+          <img 
+            src="{{ user_profile.image.url }}" 
+            style="
+            width: 160px; 
+            height: 160px; 
+            margin-right: 3%; 
+            object-fit: cover;"
+            class="rounded-circle img-thumbnail" 
+            alt="Profile Image"
+          >
+          <div class="mt-2">
+            <p class="text-secondary font-bold">{{ user_profile.bio }}</p>
+            <p>Total Posts {{ user_posts|length }}</p>
+          </div>
+        </div>
+        <hr>
+
+        <!-- User Posts -->
+        
+        <div class="row justify-content-center gap-2">
+        {% for post in user_posts  %}
+            <div class="profile-posts card col-4">
+                <a class="text-decoration-none text-dark" href="{% url 'full-post' post.id %}">
+                    <img 
+                    style="
+                    width: 100%; 
+                    height: 200px; 
+                    object-fit: contain;" 
+                    src="{{ post.post_img.url }}" 
+                    alt="post-img"
+                    >
+                    <div class="p-2">
+                      <h4> {{ post.title }} </h4>
+                      <p> {{ post.description|truncatechars:80 }} </p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+        {% if user_posts|length == 0 %}
+          <h1>No posts from user</h1>
+        {% endif %}
+    </div>
+{% endblock content %}

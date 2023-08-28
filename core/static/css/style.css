@@ -1,0 +1,119 @@
+.home-post:nth-child(2n + 1) {
+  flex-direction: row-reverse;
+}
+
+.read-btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1000px) {
+  .setting-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-post {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile-screen-profile {
+    margin-top: 12%;
+  }
+}
+
+/* Hover effect */
+.profile:hover {
+  filter: blur(1px);
+}
+
+.top-nav-margin {
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+  .top-nav-margin {
+    margin-top: 16%;
+  }
+  .message {
+    margin-top: 16%;
+  }
+}
+
+/* custom CSS for post card */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  filter: blur(0);
+  transition: filter 0.3s;
+  object-fit: cover;
+}
+
+.profile-avatar:hover {
+  filter: opacity(30%);
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-top: 1px solid #ddd;
+}
+
+.profile-posts:hover {
+  opacity: 0.7;
+}
+
+.logo {
+  width: 40px;
+  object-fit: contain;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+
+.links a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: #f5a623;
+}

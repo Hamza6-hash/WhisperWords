@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Login | blog{% endblock title %}
+{% block content %}
+    <div class="container py-5">
+        <form class="col-md-6 offset-md-3 border border-secondary p-3" action="" method='POST'>
+            <h1 class="alert alert-success text-center">Login</h1>
+            {% csrf_token %}
+            <input 
+            class="form-control"
+            type="text" 
+            name='username' 
+            placeholder="User name"
+            />
+            <input 
+            class="form-control mt-3"
+            type="password" 
+            name='password' 
+            placeholder="Password"
+            />
+            <button 
+            type="submit" 
+            class="btn btn-info w-100 mt-3">
+            Login
+            </button>
+            <a 
+            class="mt-4" 
+            href="{% url 'register' %}">
+            Don't have and account? Register here
+            </a>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-floating py-4 px-3">
+            <textarea 
+            class="form-control" 
+            name="description"
+            style="resize: vertical; height: 150px;"
+            placeholder="Share something..." 
+            id="floatingTextarea">
+            {{ user_post.description }}
+            </textarea>
+            <button class="py-2 mt-3 mx-0 btn btn-success" style="width: 30%;" type="submit">Edit</button>
+        </div>
+    </form>
+{% endblock content %}

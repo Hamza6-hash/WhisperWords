@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Register | blog {% endblock title %}
+{% block content %}
+    <div class="container py-5">
+        <form class="col-md-6 offset-md-3 border border-secondary p-3" method='POST'>
+            <h1 class="alert alert-success text-center">Register</h1>
+            {% csrf_token %}
+            <input 
+            type="text" 
+            placeholder="User Name" 
+            class="form-control" 
+            name="username" 
+            />
+            <input 
+            type="email" 
+            placeholder="Email Address" 
+            class="form-control mt-3" 
+            name="email" 
+            />
+            <input 
+            type="password" 
+            placeholder="Password" 
+            class="form-control mt-3" 
+            name="password" 
+            />
+            <button 
+            type="submit" 
+            class="btn btn-info w-100 mt-3">
+            Register
+            </button>
+            <a 
+            class="mt-4" 
+            href="{% url 'login' %}">
+            Already have an account? Login here
+            </a>
+        </form>
+    </div>
+{% endblock content %}

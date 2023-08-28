@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Settings {% endblock title %}
+{% include 'navbar.html' %}
+{% block content %}
+<!--Profile Update form-->
+<div class="container d-flex gap-5 py-4 setting-view">
+    <div class="container col-md-6">
+        <h1 
+         class="alert alert-warning text center"
+        
+        >
+         Update Profile
+        </h1>
+        <div>
+            <form 
+             action="update_profile" 
+             method="POST" 
+             enctype="multipart/form-data"
+            >  
+                {% csrf_token %}
+                <input 
+                 class="form-control"
+                 type="file"
+                 name='image'
+                >
+                <button 
+                 type="submit" 
+                 class="btn btn-success mt-3">
+                 Upload profile
+                </button>
+            </form>
+        </div>
+
+        <!--User Info Update form-->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input 
+             type="text"
+             class="form-control mt-3"
+             name="bio"
+             placeholder="Bio"
+            >
+            <div class="form-floating">
+                <textarea 
+                class="form-control mt-2" 
+                name="about"
+                style="resize: vertical; height: 150px;"
+                placeholder="" 
+                id="floatingTextarea">
+            </textarea>
+                <label for="floatingTextarea">Tell Something about yourself...</label>
+            </div> 
+            <button 
+             type="submit" 
+             class="btn btn-warning w-100 mt-3">
+             Update
+            </button>
+            <a 
+             href="{% url 'home' %}" 
+             class="btn btn-success mt-3">
+             Back Home
+            </a>
+        </form>
+    </div>
+
+    <!-- Current User Info -->
+    <div 
+     class=
+     "container
+     col-md-4 
+     text-center 
+     card 
+     p-3 
+     alert 
+     alert-info
+     d-flex
+     flex-column
+     align-items-center
+     justify-content-center"
+    >
+        <h1 class="">
+            Current Profile
+        </h1>
+        <img  
+         class=
+         "mt-2 
+         rounded-circle" 
+         style=
+         "width: 100px; 
+         height: 100px; 
+         object-fit: cover;" 
+         src="{{ user_profile.image.url }}" 
+         alt=""
+        >
+        <h4 class="py-2">@{{ user_profile.user }}</h4>
+        <h4>{{ user_profile.bio }}</h4>
+        <p class="mt-2 fs-5" style="width: 80%;">{{ user_profile.aboutAuthor }}</p>
+    </div>
+</div>
+{% endblock content %}

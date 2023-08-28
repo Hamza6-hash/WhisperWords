@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Joan
+- Font Author: Copyright 2021 The Joan Project Authors (https://github.com/PaoloBiagini/Joan)
+- Font Source: http://fonts.gstatic.com/s/joan/v5/ZXupe1oZsqWRbRdH8X1p_Ng.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
